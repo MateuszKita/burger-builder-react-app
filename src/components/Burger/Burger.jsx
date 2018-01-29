@@ -4,10 +4,13 @@ import classes from './Burger.css'
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 const burger = (props) => {
-    let transformedIngredients = Object.keys(props.ingredients)
+    let transformedIngredients = Object
+        .keys(props.ingredients)
         .map(transformedIngredientKey => {
             return [...Array(props.ingredients[transformedIngredientKey])].map((_, index) => {
-                return <BurgerIngredient key={transformedIngredientKey + index} type={transformedIngredientKey} />
+                return <BurgerIngredient
+                    key={transformedIngredientKey + index}
+                    type={transformedIngredientKey} />
             })
         })
         .reduce((prevValue, currValue) => {
@@ -20,8 +23,7 @@ const burger = (props) => {
 
     return (
         <div className={classes.Burger}>
-            <BurgerIngredient type="bread-top" />
-            {transformedIngredients}
+            <BurgerIngredient type="bread-top" /> {transformedIngredients}
             <BurgerIngredient type="bread-bottom" />
         </div>
     )
