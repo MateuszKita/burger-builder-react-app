@@ -17,6 +17,7 @@ const INGREDIENT_PRICES = {
 }
 
 class BurgerBuilder extends Component {
+
     state = {
         ingredients: {
             salad: 0,
@@ -29,6 +30,22 @@ class BurgerBuilder extends Component {
         purchasing: false,
         loading: false
     }
+
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         ingredients: {
+    //             salad: 0,
+    //             bacon: 0,
+    //             cheese: 0,
+    //             meat: 0
+    //         },
+    //         totalPrice: 3,
+    //         purchasable: false,
+    //         purchasing: false,
+    //         loading: false
+    //     }
+    // }
 
     purchaseHandler = () => {
         this.setState({ purchasing: true })
