@@ -3,11 +3,11 @@ import React from 'react'
 import classes from './Burger.css'
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
-const burger = (props) => {
+const burger = ({ ingredients }) => {
     let transformedIngredients = Object
-        .keys(props.ingredients)
+        .keys(ingredients)
         .map(transformedIngredientKey => {
-            return [...Array(props.ingredients[transformedIngredientKey])].map((_, index) => {
+            return [...Array(ingredients[transformedIngredientKey])].map((_, index) => {
                 return <BurgerIngredient
                     key={transformedIngredientKey + index}
                     type={transformedIngredientKey} />
