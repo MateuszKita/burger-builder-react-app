@@ -23,7 +23,8 @@ class BurgerBuilder extends Component {
         totalPrice: 3,
         purchasable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        error: false
     }
 
     componentDidMount() {
@@ -34,6 +35,7 @@ class BurgerBuilder extends Component {
             })
             .catch(error => {
                 console.log(error)
+                this.setState({ error: true })
             })
     }
 
@@ -121,7 +123,7 @@ class BurgerBuilder extends Component {
         }
 
         let orderSummary = null
-        let burger = <Spinner />
+        let burger = this.state.error ? <p style={{ textAlign: "center" }}>Ingredients can't be loaded</p> : <Spinner />
 
         if (this.state.ingredients) {
             burger = (
